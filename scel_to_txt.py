@@ -95,9 +95,9 @@ def scel2txt(file_name):
 
 if __name__ == '__main__':
     # scel所在文件夹路径
-    in_path = r"C:\Users\jx\PycharmProjects\文本处理\搜狗细胞词库转换txt\scel"
+    in_path = r"scel"
     # 输出词典所在文件夹路径
-    out_path = r"C:\Users\jx\PycharmProjects\文本处理\搜狗细胞词库转换txt\txt"
+    out_path = r"txt"
     fin = [fname for fname in os.listdir(in_path) if fname[-5:] == ".scel"]
     for f in fin:
         try:
