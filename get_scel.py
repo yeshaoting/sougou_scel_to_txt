@@ -15,7 +15,7 @@ def get_file_with_chorme(url):
 
 # 切换工作目录
 try:
-    os.chdir("./搜狗细胞词库转换txt")
+    os.chdir("./scel")
     print("切换工作目录完成...")
 except FileNotFoundError:
     print("已经切换到当前工作目录,无需再次操作...")
