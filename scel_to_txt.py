@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
 import struct
-#拼音表偏移，
+
+# 拼音表偏移，
 startPy = 0x1540
 # 汉语词组表偏移
 startChinese = 0x2628
 # 全局拼音表
 GPy_Table = {}
+
 
 # 原始字节码转为字符串
 def byte2str(data):
@@ -88,23 +90,24 @@ def scel2txt(file_name):
     print("描述信息：", byte2str(data[0x540:0xd40]))
     print("词库示例：", byte2str(data[0xd40:startPy]))
     getPyTable(data[startPy:startChinese])
-    #元组(词频,拼音,中文词组)的列表 如：[(3, 'bingdong', '冰冻'), (6, 'fushui', '腹水')]
+    # 元组(词频,拼音,中文词组)的列表 如：[(3, 'bingdong', '冰冻'), (6, 'fushui', '腹水')]
     getChinese(data[startChinese:])
     print("getChinese(data[startChinese:])={}".format(getPyTable(data[startPy:startChinese])))
     return getChinese(data[startChinese:])
 
+
 if __name__ == '__main__':
     # scel所在文件夹路径
-    in_path = r"scel"
+    in_path = r"./output/scel"
     # 输出词典所在文件夹路径
-    out_path = r"txt"
+    out_path = r"./output/txt"
     fin = [fname for fname in os.listdir(in_path) if fname[-5:] == ".scel"]
     for f in fin:
         try:
             for word in scel2txt(os.path.join(in_path, f)):
                 file_path = (os.path.join(out_path, str(f).split('.')[0] + '.txt'))
                 # 保存结果
-                with open(file_path, 'a+', encoding='utf-8')as file:
+                with open(file_path, 'a+', encoding='utf-8') as file:
                     file.write(word[2] + '\n')
             # os.remove(os.path.join(in_path, f))
         except Exception as e:

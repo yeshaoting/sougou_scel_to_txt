@@ -18,12 +18,12 @@
 
 ## 代码执行顺序
 
-- 1.`get_scel.py` 获取所有的scel文件 并写入`scel`文件夹内
+- 1.`get_scel.py` 获取所有的scel文件 并写入`output/scel`文件夹内
   
   - 现在会分页遍历抓取所有词库，太大了
     
-  - 建议手动下载需要的词库
+  - 建议手动下载需要的词库，并放入`output/scel`文件夹内
     
-- 2.`scel_to_txt.py` 将scel文件逐个解析 并写入`txt`文件夹内
+- 2.`scel_to_txt.py` 将scel文件逐个解析，并写入`output/txt`文件夹内
   
-- 3.`main.py` 合并所有txt文件
+- 3.`merge_txt.py` 合并所有txt文件，并写入`output`文件夹内
